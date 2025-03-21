@@ -1,0 +1,90 @@
+;<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather App</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <!-- Home and Contact Buttons -->
+    <div class="header-buttons">
+      <button onclick="window.location.href='index.html'">Home</button> <!-- Link to homepage -->
+      <button onclick="window.location.href='contact.html'">Contact Us</button> <!-- Link to contact page -->
+    </div>
+
+    <h1>Weather Forecast</h1>
+
+    <div class="city-input">
+      <input type="text" id="city" placeholder="Enter City">
+      <button onclick="getWeather()">Get Weather</button>
+    </div>
+
+    <div class="weather-info">
+      <h2 id="city-name">City Name</h2>
+      <div id="temperature">Temperature: --°C</div>
+      <div id="weather-condition">Weather: --</div>
+      <div id="humidity">Humidity: --%</div>
+      <div id="wind-speed">Wind Speed: -- m/s</div>
+    </div>
+
+    <div class="forecast">
+      <h3>5 Day Forecast</h3>
+      <div id="forecast-container"></div>
+    </div>
+
+    <!-- Fake Feedback Section -->
+    <div class="feedback-section">
+      <h3>User Feedback</h3>
+      <div class="fake-comments">
+        <div class="comment">
+          <p><strong>ashraf:</strong> "Great app! The weather info is accurate and easy to understand.thank you very much"</p>
+        </div>
+        <div class="comment">
+          <p><strong>aiman:</strong> "I love the forecast feature. It helps me plan my week better.thanks bro"</p>
+        </div>
+        <div class="comment">
+          <p><strong>imran:</strong> "Easy to use. However, it would be great if the UI had more color options.i want to find a girl"</p>
+        </div>
+      </div>
+
+      <button onclick="openFeedbackForm()">Give Feedback</button>
+    </div>
+
+    <!-- Feedback Form (Hidden by default) -->
+    <div id="feedback-form" style="display:none;">
+      <h3>Leave Feedback</h3>
+      <textarea id="feedback" rows="4" cols="50" placeholder="Your feedback here..."></textarea>
+      <br>
+      <button onclick="submitFeedback()">Submit Feedback</button>
+      <button onclick="closeFeedbackForm()">Close</button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+  <script>
+    // Function to show the feedback form
+    function openFeedbackForm() {
+      document.getElementById("feedback-form").style.display = "block";
+    }
+
+    // Function to close the feedback form
+    function closeFeedbackForm() {
+      document.getElementById("feedback-form").style.display = "none";
+    }
+
+    // Function to handle feedback submission (you can expand this to actually send feedback to a server)
+    function submitFeedback() {
+      const feedback = document.getElementById("feedback").value;
+      if(feedback) {
+        alert("Thank you for your feedback!");
+        closeFeedbackForm();
+      } else {
+        alert("Please enter your feedback.");
+      }
+    }
+  </script>
+</body>
+</html>
